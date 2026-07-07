@@ -13,9 +13,9 @@ Penelitian ini membandingkan performa model *machine learning* **XGBoost** dan m
 | Kategori | Jumlah Produk |
 |---|---|
 | Smooth | 44 produk |
-| Erratic | 41 produk |
+| Erratic | 42 produk |
 | Intermittent | 20 produk |
-| Lumpy | 39 produk |
+| Lumpy | 38 produk |
 
 Metodologi penelitian mengacu pada kerangka kerja **CRISP-DM** (*Cross-Industry Standard Process for Data Mining*) dan hasil penelitian diintegrasikan ke dalam prototipe aplikasi web berbasis **Streamlit**.
 
@@ -71,7 +71,7 @@ Understanding -> Understanding -> Preparation ->  ----------- -> ----------- -> 
 3. **Agregasi Mingguan** — Resampling data harian ke mingguan (Senin–Minggu)
 4. **Klasifikasi ADI-CV²** — Pengelompokan 144 produk Grup A ke dalam 4 kategori pola permintaan
 5. **Feature Engineering** — Pembuatan 24 fitur: lag (1–12 minggu), rolling statistics (avg/std/max/min/median, window 4/8/12 minggu), fitur temporal
-6. **Train-Validation Split** — Pembagian 80:20 berbasis waktu (batas training: 14 September 2025)
+6. **Train-Test Split** — Pembagian 80:20 berbasis waktu (batas training: 14 September 2025)
 7. **Hyperparameter Tuning** — Optimasi menggunakan **Optuna** (TPE Sampler) untuk kedua model
 8. **Evaluasi** — MAE, R² Score, LOR per kategori dan keseluruhan produk Grup A
 9. **Deployment** — Integrasi model ke aplikasi web Streamlit
@@ -105,40 +105,7 @@ Understanding -> Understanding -> Preparation ->  ----------- -> ----------- -> 
 
 ---
 
-## 🚀 Cara Menjalankan Aplikasi Web
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/username/nama-repo.git
-cd nama-repo
-```
-
-### 2. Buat Virtual Environment (opsional tapi disarankan)
-
-```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
-```
-
-### 3. Install Dependensi
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Jalankan Aplikasi
-
-```bash
-streamlit run app.py
-```
-
-Aplikasi akan terbuka otomatis di browser pada `http://localhost:8501`.
-
----
-
-## ⚙️ Fitur Aplikasi Web
+## ⚙️ Fitur Web Streamlit
 
 | Fitur | Deskripsi |
 |---|---|
@@ -167,28 +134,3 @@ streamlit
 
 ---
 
-## 📝 Catatan Teknis
-
-- Penamaan file model menggunakan konvensi `erractic` (sesuai dengan penulisan di notebook) — bukan `erratic`.
-- Model TabNet disimpan dalam format `.zip` dan dimuat menggunakan metode `.load_model()`.
-- Model XGBoost disimpan dalam format `.pkl` dan dimuat menggunakan `pickle` atau `joblib`.
-- *Data splitting* dilakukan berbasis urutan waktu (bukan random) untuk menghindari *data leakage*.
-- Rolling features menggunakan `.shift(1)` sebelum `.rolling()` untuk memastikan tidak ada kebocoran data target ke fitur.
-
----
-
-## 👤 Informasi Peneliti
-
-| | |
-|---|---|
-| **Nama** | Amando Yuviano |
-| **Program Studi** | Teknik Elektro |
-| **Institusi** | Universitas Lampung |
-| **Lokasi Penelitian** | Toko Plastik Ombo Jaya, Pringsewu, Lampung |
-| **Periode Data** | 1 Juli 2024 – 4 Januari 2026 |
-
----
-
-## 📄 Lisensi
-
-Repository ini dibuat untuk keperluan penelitian akademik. Penggunaan kode dan data di luar keperluan akademik harap mencantumkan sumber.
