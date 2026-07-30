@@ -1,7 +1,7 @@
 # 📦 Studi Komparatif XGBoost dan TabNet untuk Peramalan Permintaan Produk Ritel
 
 > Skripsi — Jurusan Teknik Elektro, Universitas Lampung  
-> **Amando Yuviano**  
+> **Aman++ Yuvi+++**  
 > Studi Kasus: Toko Plastik Ombo Jaya, Pringsewu, Lampung
 
 ---
@@ -101,7 +101,7 @@ Understanding -> Understanding -> Preparation ->  ----------- -> ----------- -> 
 | XGBoost | -0,04 | -0,00 | -0,07 | -0,23 | 0,05 |
 | TabNet | -0,01 | 0,11 | -0,05 | -0,07 | 0,08 |
 
-> **Catatan:** LOR mendekati nol mengindikasikan model tidak mengalami overfitting maupun underfitting.
+> **Catatan:** LOR pada Smooth Demand mendekati nol mengindikasikan model tidak mengalami overfitting.
 
 ---
 
